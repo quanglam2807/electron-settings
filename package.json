@@ -1,5 +1,5 @@
 {
-  "name": "electron-settings",
+  "name": "@webcatalog/electron-settings",
   "version": "5.0.1",
   "description": "A simple and robust settings management library for Electron.",
   "license": "MIT",
@@ -28,8 +28,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint src --ext .ts",
-    "docs": "typedoc && echo \"electron-settings.js.org\" > docs/CNAME",
-    "release": "standard-version",
+    "docs": "typedoc",
     "prepublishOnly": "tsc",
     "test": "npm run lint && npm run test:main && npm run test:renderer",
     "test:main": "electron-mocha --reporter spec --require ts-node/register 'src/**/*.test.ts'",
