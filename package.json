@@ -1,16 +1,23 @@
 {
   "name": "@webcatalog/electron-settings",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "A simple and robust settings management library for Electron.",
   "license": "MIT",
   "main": "dist/settings.js",
   "types": "dist/settings.d.ts",
   "website": "https://electron-settings.js.org/docs",
-  "author": {
-    "name": "Nathan Buchar",
-    "email": "hello@nathanbuchar.com",
-    "url": "https://www.nathanbuchar.com"
-  },
+  "contributors": [
+    {
+      "name": "Nathan Buchar",
+      "email": "hello@nathanbuchar.com",
+      "url": "https://www.nathanbuchar.com"
+    },
+    {
+      "name": "Webcatalog Ltd",
+      "email": "contact@webcatalog.io",
+      "url": "https://about.webcatalog.io/"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/nathanbuchar/electron-settings.git"

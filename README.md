@@ -1,6 +1,6 @@
 # @webcatalog/electron-settings
 
-> A fork of [electron-settings](https://github.com/nathanbuchar/electron-settings) with active maintenance & enhancements.
+> A fork of [electron-settings](https://github.com/nathanbuchar/electron-settings) from [WebCatalog](https://about.webcatalog.io/) with active maintenance & enhancements.
 
 A simple and robust settings management library for [Electron](https://electronjs.org).
 
@@ -34,4 +34,4 @@ await settings.get('color.code.rgb[1]');
 
 ### API Docs
 
-API docs and can be found at [electron-settings.js.org](https://electron-settings.js.org).
+API docs and can be found at [https://webcatalog.github.io/electron-settings/](https://webcatalog.github.io/electron-settings/).
