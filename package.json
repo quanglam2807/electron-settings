@@ -1,5 +1,5 @@
 {
-  "name": "@webcatalog/electron-settings",
+  "name": "@webcatalog-oss/electron-settings",
   "version": "5.0.5",
   "description": "A simple and robust settings management library for Electron.",
   "license": "MIT",
