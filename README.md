@@ -1,4 +1,4 @@
-# @webcatalog/electron-settings
+# @webcatalog-oss/electron-settings
 
 > A fork of [electron-settings](https://github.com/nathanbuchar/electron-settings) from [WebCatalog](https://about.webcatalog.io/) with active maintenance & enhancements.
 
@@ -9,7 +9,7 @@ Born from Atom's original internal configuration manager and the settings manage
 ### Install
 
 ```
-npm install @webcatalog/electron-settings
+npm install @webcatalog-oss/electron-settings
 ```
 
 ### Demo
