@@ -1,16 +1,23 @@
 {
-  "name": "electron-settings",
-  "version": "4.0.2",
+  "name": "@webcatalog/electron-settings",
+  "version": "5.0.2",
   "description": "A simple and robust settings management library for Electron.",
   "license": "MIT",
   "main": "dist/settings.js",
   "types": "dist/settings.d.ts",
   "website": "https://electron-settings.js.org/docs",
-  "author": {
-    "name": "Nathan Buchar",
-    "email": "hello@nathanbuchar.com",
-    "url": "https://www.nathanbuchar.com"
-  },
+  "contributors": [
+    {
+      "name": "Nathan Buchar",
+      "email": "hello@nathanbuchar.com",
+      "url": "https://www.nathanbuchar.com"
+    },
+    {
+      "name": "Webcatalog Ltd",
+      "email": "contact@webcatalog.io",
+      "url": "https://about.webcatalog.io/"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/nathanbuchar/electron-settings.git"
@@ -28,8 +35,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint src --ext .ts",
-    "docs": "typedoc && echo \"electron-settings.js.org\" > docs/CNAME",
-    "release": "standard-version",
+    "docs": "typedoc",
     "prepublishOnly": "tsc",
     "test": "npm run lint && npm run test:main && npm run test:renderer",
     "test:main": "electron-mocha --reporter spec --require ts-node/register 'src/**/*.test.ts'",
@@ -62,10 +68,9 @@
     "eslint-plugin-import": "^2.20.2",
     "randomstring": "^1.1.5",
     "rimraf": "^3.0.2",
-    "standard-version": "^8.0.0",
     "ts-node": "^8.10.1",
     "typedoc": "^0.17.7",
-    "typescript": "^3.9.3"
+    "typescript": "^4.0.3"
   },
   "peerDependencies": {
     "electron": ">= 2"

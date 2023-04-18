@@ -2,7 +2,7 @@
 /* eslint import/no-extraneous-dependencies: ['error', { devDependencies: true }] */
 
 import assert from 'assert';
-import electron from 'electron';
+import { app } from 'electron';
 import fs from 'fs';
 import mkdirp from 'mkdirp';
 import path from 'path';
@@ -15,7 +15,6 @@ const rootDir = path.join(__dirname, '..');
 const tmpDir = path.join(rootDir, 'tmp');
 
 function getUserDataPath() {
-  const app = electron.app || electron.remote.app;
   const userDataPath = app.getPath('userData');
 
   return userDataPath;

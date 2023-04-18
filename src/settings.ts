@@ -1,4 +1,4 @@
-import electron from 'electron';
+import { app } from 'electron';
 import fs from 'fs';
 import mkdirp from 'mkdirp';
 import path from 'path';
@@ -10,6 +10,13 @@ import _get from 'lodash.get';
 import _has from 'lodash.has';
 import _set from 'lodash.set';
 import _unset from 'lodash.unset';
+
+/**
+ * Handle NodeJS error: https://stackoverflow.com/a/51525183/5522263
+ * @param error the error object.
+ * @returns if given error object is a NodeJS error.
+ */
+const isNodeError = (error: unknown): error is NodeJS.ErrnoException => error instanceof Error;
 
 /**
  * At the basic level, a key path is the string equivalent
@@ -149,32 +156,6 @@ let config: Config = {
 };
 
 /**
- * Returns the Electron instance. The developer may define
- * a custom Electron instance by using `configure()`.
- *
- * @returns The Electron instance.
- * @internal
- */
-function getElectron(): typeof Electron {
-  return config.electron ?? electron;
-}
-
-/**
- * Returns the Electron app. The app may need be accessed
- * via `Remote` depending on whether this code is running
- * in the main or renderer process.
- *
- * @returns The Electron app.
- * @internal
- */
-function getElectronApp(): Electron.App {
-  const e = getElectron();
-  const app = e.app ?? e.remote.app;
-
-  return app;
-}
-
-/**
  * Returns the path to the settings directory. The path
  * may be customized by the developer by using
  * `configure()`.
@@ -183,7 +164,7 @@ function getElectronApp(): Electron.App {
  * @internal
  */
 function getSettingsDirPath(): string {
-  return config.dir ?? getElectronApp().getPath('userData');
+  return config.dir ?? app.getPath('userData');
 }
 
 /**
@@ -236,12 +217,10 @@ function ensureSettingsFileSync(): void {
   try {
     fs.statSync(filePath);
   } catch (err) {
-    if (err) {
-      if (err.code === 'ENOENT') {
-        saveSettingsSync({});
-      } else {
-        throw err;
-      }
+    if (isNodeError(err) && err.code === 'ENOENT') {
+      saveSettingsSync({});
+    } else {
+      throw err;
     }
   }
 }
@@ -283,7 +262,7 @@ function ensureSettingsDirSync(): void {
   try {
     fs.statSync(dirPath);
   } catch (err) {
-    if (err.code === 'ENOENT') {
+    if (isNodeError(err) && err.code === 'ENOENT') {
       mkdirp.sync(dirPath);
     } else {
       throw err;
