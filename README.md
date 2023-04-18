@@ -15,7 +15,7 @@ npm install @webcatalog-oss/electron-settings
 ### Demo
 
 ```ts
-import settings from 'electron-settings';
+import settings from '@webcatalog-oss/electron-settings';
 
 await settings.set('color', {
   name: 'cerulean',
